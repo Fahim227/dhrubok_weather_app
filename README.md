@@ -1,16 +1,19 @@
 # dhrubok_weather_app
 
-A new Flutter project.
+A Weather App.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To Run this App you need to go with following commands:
 
-A few resources to get you started if this is your first Flutter project:
+- Make Clone of this Repository
+- run "flutter clean"
+- run "flutter pub get"
+- Click on "Get Dependencies"
+- Select an Device or Emulator 
+- Click on Run button to run the app
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This app will take permission of location
+By accepting the permission User will get his weather update of current location
+User can Search to Specific City's weather update
+If there is no internet connectivity The app will show data those are save in local database.
