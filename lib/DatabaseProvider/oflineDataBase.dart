@@ -56,6 +56,19 @@ class DatabaseHelper {
         ' pressure INTEGER,'
         ' cloudiness INTEGER,'
         ' windSpeed REAL )');
+
+    await db.execute('CREATE TABLE WeatherExp (id INTEGER PRIMARY KEY AUTOINCREMENT,'
+        ' isForecast INTEGER,'
+        ' date TEXT,'
+        ' area_name TEXT,'
+        ' temperature_celsius REAL,'
+        ' temperature_fahrenheit REAL,'
+        ' weatherDescription TEXT,'
+        ' weatherIcon TEXT,'
+        ' humidity INTEGER,'
+        ' pressure INTEGER,'
+        ' cloudiness INTEGER,'
+        ' windSpeed REAL )');
   }
 
   Future<int> insertWeatherData(WeatherResponseModel weatherResponseModel, List<Weather> forecastWeather) async {
@@ -70,10 +83,12 @@ class DatabaseHelper {
     for (Weather w in forecastWeather){
       if (!isInsertedCurrentWeather){
         await db.insert('Weather',jsonData);
+        await db.insert('WeatherExp',jsonData);
         isInsertedCurrentWeather = true;
       }
       Map<String, dynamic> forecastJsonData = getWeatherObjToJSON(w.toJson()!, 1);
       await db.insert('Weather',forecastJsonData);
+      await db.insert('WeatherExp',forecastJsonData);
     }
     // print("type =========== $type_id");
     print(await db.query("Weather"));
